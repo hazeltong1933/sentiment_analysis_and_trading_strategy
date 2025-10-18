@@ -3,12 +3,10 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from torch.nn.functional import softmax
 import torch
 
-# Load FinBERT model and tokenizer
 MODEL_NAME = "ProsusAI/finbert"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 
-# Map model outputs to your labels
 label_map = {0: 'negative', 1: 'neutral', 2: 'positive'}
 
 def get_finbert_sentiment(text):
